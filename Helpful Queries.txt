@@ -1,0 +1,28 @@
+
+
+1. To check for reason/related events in case of Unfamiliar signin alert
+
+BehaviorAnalytics | where * contains "PeiEe.Sim@molnlycke.com" | where ActivityInsights contains "true"
+
+
+2. Detailed events in column for Unfamiliar Signin -
+
+SigninLogs | where Identity contains "$sezborg@molnlycke.com" | summarize count() by Location, AppDisplayName, Identity, ResultDescription, ResultType, UserDisplayName
+
+
+3. Query To check in case of Atypical travel alert
+
+SigninLogs | where Identity contains "rosendahl" | summarize count() by IPAddress, Location, Identity
+
+
+To check for related logs 
+
+SigninLogs | where UserDisplayName contains "rosendahl" | summarize count() by UserPrincipalName, Location
+
+
+
+BehaviorAnalytics | where * contains "rosendahl"
+
+
+
+

@@ -1,0 +1,2 @@
+# Azure-Sentinel
+KQL Query
